@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "553462335856",
+    "project_id": "flutter-potensi-pemilihan",
+    "storage_bucket": "flutter-potensi-pemilihan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553462335856:android:6db86052cf366c568b67b5",
+        "android_client_info": {
+          "package_name": "com.aemastudio.flutter_pemilihan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553462335856-e217ur24ugr4iidj1vvf3qceeip227rd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm8SmAe4UKjonOHlnMj77MH30HUe8-3Gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553462335856-e217ur24ugr4iidj1vvf3qceeip227rd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
