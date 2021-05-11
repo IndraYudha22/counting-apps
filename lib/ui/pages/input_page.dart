@@ -20,13 +20,17 @@ class _InputPageState extends State<InputPage> {
   int qGolput = 0;
   TextEditingController rtController = TextEditingController();
 
+  TextEditingController n1Controller = TextEditingController(text: '0');
+  TextEditingController n2Controller = TextEditingController(text: '0');
+  TextEditingController n3Controller = TextEditingController(text: '0');
+  TextEditingController n4Controller = TextEditingController(text: '0');
+  TextEditingController golputController = TextEditingController(text: '0');
+
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     CollectionReference users = firestore.collection('users');
     List<String> docID = [];
-
-    print('dropdown : ${dropDownValue}');
 
     return GeneralPage(
       title: "Input Data",
@@ -240,7 +244,10 @@ class _InputPageState extends State<InputPage> {
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
+                                          print(n1Controller.text);
+                                          qNomor1 = int.parse( (n1Controller.text == '') ? '0' : n1Controller.text);
                                           qNomor1 = max(0, qNomor1 - 1);
+                                          n1Controller.text = qNomor1.toString();
                                         });
                                       },
                                       child: Container(
@@ -255,18 +262,39 @@ class _InputPageState extends State<InputPage> {
                                                     "assets/btn_min.png"))),
                                       ),
                                     ),
-                                    SizedBox(
+                                    Container(
                                       width: 50,
-                                      child: Text(
-                                        qNomor1.toString(),
+                                      height: 26,
+                                      margin:
+                                          EdgeInsets.fromLTRB(6, 0, 6, 0),
+                                      // padding: EdgeInsets.symmetric(horizontal: 10),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(8),
+                                          border: Border.all(color: Colors.black)),
+                                      child: TextField(
                                         textAlign: TextAlign.center,
-                                        style: blackFontStyle2,
+                                        controller: n1Controller,
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                        ),
+                                        keyboardType: TextInputType.number,
                                       ),
                                     ),
+                                    // SizedBox(
+                                    //   width: 50,
+                                    //   child: Text(
+                                    //     qNomor1.toString(),
+                                    //     textAlign: TextAlign.center,
+                                    //     style: blackFontStyle2,
+                                    //   ),
+                                    // ),
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
+                                          print('NILAI ${n1Controller.text}');
+                                          qNomor1 = int.parse( (n1Controller.text == '') ? '0' : n1Controller.text);
                                           qNomor1 = min(999, qNomor1 + 1);
+                                          n1Controller.text = qNomor1.toString();
                                         });
                                       },
                                       child: Container(
@@ -297,7 +325,9 @@ class _InputPageState extends State<InputPage> {
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
+                                          qNomor2 = int.parse( (n2Controller.text == '') ? '0' : n2Controller.text);
                                           qNomor2 = max(0, qNomor2 - 1);
+                                          n2Controller.text = qNomor2.toString();
                                         });
                                       },
                                       child: Container(
@@ -305,25 +335,46 @@ class _InputPageState extends State<InputPage> {
                                         height: 26,
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                            BorderRadius.circular(8),
                                             border: Border.all(width: 1),
                                             image: DecorationImage(
                                                 image: AssetImage(
                                                     "assets/btn_min.png"))),
                                       ),
                                     ),
-                                    SizedBox(
+                                    Container(
                                       width: 50,
-                                      child: Text(
-                                        qNomor2.toString(),
+                                      height: 26,
+                                      margin:
+                                      EdgeInsets.fromLTRB(6, 0, 6, 0),
+                                      // padding: EdgeInsets.symmetric(horizontal: 10),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(8),
+                                          border: Border.all(color: Colors.black)),
+                                      child: TextField(
                                         textAlign: TextAlign.center,
-                                        style: blackFontStyle2,
+                                        controller: n2Controller,
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                        ),
+                                        keyboardType: TextInputType.number,
                                       ),
                                     ),
+                                    // SizedBox(
+                                    //   width: 50,
+                                    //   child: Text(
+                                    //     qNomor1.toString(),
+                                    //     textAlign: TextAlign.center,
+                                    //     style: blackFontStyle2,
+                                    //   ),
+                                    // ),
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
+                                          print('NILAI ${n2Controller.text}');
+                                          qNomor2 = int.parse( (n2Controller.text == '') ? '0' : n2Controller.text);
                                           qNomor2 = min(999, qNomor2 + 1);
+                                          n2Controller.text = qNomor2.toString();
                                         });
                                       },
                                       child: Container(
@@ -331,7 +382,7 @@ class _InputPageState extends State<InputPage> {
                                         height: 26,
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                            BorderRadius.circular(8),
                                             border: Border.all(width: 1),
                                             image: DecorationImage(
                                                 image: AssetImage(
@@ -354,7 +405,9 @@ class _InputPageState extends State<InputPage> {
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
+                                          qNomor3 = int.parse( (n3Controller.text == '') ? '0' : n3Controller.text);
                                           qNomor3 = max(0, qNomor3 - 1);
+                                          n3Controller.text = qNomor3.toString();
                                         });
                                       },
                                       child: Container(
@@ -362,25 +415,46 @@ class _InputPageState extends State<InputPage> {
                                         height: 26,
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                            BorderRadius.circular(8),
                                             border: Border.all(width: 1),
                                             image: DecorationImage(
                                                 image: AssetImage(
                                                     "assets/btn_min.png"))),
                                       ),
                                     ),
-                                    SizedBox(
+                                    Container(
                                       width: 50,
-                                      child: Text(
-                                        qNomor3.toString(),
+                                      height: 26,
+                                      margin:
+                                      EdgeInsets.fromLTRB(6, 0, 6, 0),
+                                      // padding: EdgeInsets.symmetric(horizontal: 10),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(8),
+                                          border: Border.all(color: Colors.black)),
+                                      child: TextField(
                                         textAlign: TextAlign.center,
-                                        style: blackFontStyle2,
+                                        controller: n3Controller,
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                        ),
+                                        keyboardType: TextInputType.number,
                                       ),
                                     ),
+                                    // SizedBox(
+                                    //   width: 50,
+                                    //   child: Text(
+                                    //     qNomor1.toString(),
+                                    //     textAlign: TextAlign.center,
+                                    //     style: blackFontStyle2,
+                                    //   ),
+                                    // ),
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
+                                          print('NILAI ${n3Controller.text}');
+                                          qNomor3 = int.parse( (n3Controller.text == '') ? '0' : n3Controller.text);
                                           qNomor3 = min(999, qNomor3 + 1);
+                                          n3Controller.text = qNomor3.toString();
                                         });
                                       },
                                       child: Container(
@@ -388,7 +462,7 @@ class _InputPageState extends State<InputPage> {
                                         height: 26,
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                            BorderRadius.circular(8),
                                             border: Border.all(width: 1),
                                             image: DecorationImage(
                                                 image: AssetImage(
@@ -412,7 +486,10 @@ class _InputPageState extends State<InputPage> {
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
-                                          qNomor4 = max(0, qNomor4 - 1);
+                                          print(n4Controller.text);
+                                          qNomor4 = int.parse( (n4Controller.text == '') ? '0' : n4Controller.text);
+                                          qNomor4 = max(0, qNomor1 - 1);
+                                          n4Controller.text = qNomor4.toString();
                                         });
                                       },
                                       child: Container(
@@ -420,25 +497,46 @@ class _InputPageState extends State<InputPage> {
                                         height: 26,
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                            BorderRadius.circular(8),
                                             border: Border.all(width: 1),
                                             image: DecorationImage(
                                                 image: AssetImage(
                                                     "assets/btn_min.png"))),
                                       ),
                                     ),
-                                    SizedBox(
+                                    Container(
                                       width: 50,
-                                      child: Text(
-                                        qNomor4.toString(),
+                                      height: 26,
+                                      margin:
+                                      EdgeInsets.fromLTRB(6, 0, 6, 0),
+                                      // padding: EdgeInsets.symmetric(horizontal: 10),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(8),
+                                          border: Border.all(color: Colors.black)),
+                                      child: TextField(
                                         textAlign: TextAlign.center,
-                                        style: blackFontStyle2,
+                                        controller: n4Controller,
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                        ),
+                                        keyboardType: TextInputType.number,
                                       ),
                                     ),
+                                    // SizedBox(
+                                    //   width: 50,
+                                    //   child: Text(
+                                    //     qNomor1.toString(),
+                                    //     textAlign: TextAlign.center,
+                                    //     style: blackFontStyle2,
+                                    //   ),
+                                    // ),
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
+                                          print('NILAI ${n4Controller.text}');
+                                          qNomor4 = int.parse( (n4Controller.text == '') ? '0' : n4Controller.text);
                                           qNomor4 = min(999, qNomor4 + 1);
+                                          n4Controller.text = qNomor4.toString();
                                         });
                                       },
                                       child: Container(
@@ -446,7 +544,7 @@ class _InputPageState extends State<InputPage> {
                                         height: 26,
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                            BorderRadius.circular(8),
                                             border: Border.all(width: 1),
                                             image: DecorationImage(
                                                 image: AssetImage(
@@ -469,7 +567,9 @@ class _InputPageState extends State<InputPage> {
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
+                                          qGolput = int.parse( (golputController.text == '') ? '0' : golputController.text);
                                           qGolput = max(0, qGolput - 1);
+                                          golputController.text = qGolput.toString();
                                         });
                                       },
                                       child: Container(
@@ -477,25 +577,45 @@ class _InputPageState extends State<InputPage> {
                                         height: 26,
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                            BorderRadius.circular(8),
                                             border: Border.all(width: 1),
                                             image: DecorationImage(
                                                 image: AssetImage(
                                                     "assets/btn_min.png"))),
                                       ),
                                     ),
-                                    SizedBox(
+                                    Container(
                                       width: 50,
-                                      child: Text(
-                                        qGolput.toString(),
+                                      height: 26,
+                                      margin:
+                                      EdgeInsets.fromLTRB(6, 0, 6, 0),
+                                      // padding: EdgeInsets.symmetric(horizontal: 10),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(8),
+                                          border: Border.all(color: Colors.black)),
+                                      child: TextField(
                                         textAlign: TextAlign.center,
-                                        style: blackFontStyle2,
+                                        controller: golputController,
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                        ),
+                                        keyboardType: TextInputType.number,
                                       ),
                                     ),
+                                    // SizedBox(
+                                    //   width: 50,
+                                    //   child: Text(
+                                    //     qNomor1.toString(),
+                                    //     textAlign: TextAlign.center,
+                                    //     style: blackFontStyle2,
+                                    //   ),
+                                    // ),
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
+                                          qGolput = int.parse( (golputController.text == '') ? '0' : golputController.text);
                                           qGolput = min(999, qGolput + 1);
+                                          golputController.text = qGolput.toString();
                                         });
                                       },
                                       child: Container(
@@ -503,7 +623,7 @@ class _InputPageState extends State<InputPage> {
                                         height: 26,
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                            BorderRadius.circular(8),
                                             border: Border.all(width: 1),
                                             image: DecorationImage(
                                                 image: AssetImage(
@@ -589,7 +709,11 @@ class _InputPageState extends State<InputPage> {
                                   qNomor3 = 0;
                                   qNomor4 = 0;
                                   qGolput = 0;
-                                  rtController.text = '';
+                                  n1Controller.text = '0';
+                                  n2Controller.text = '0';
+                                  n3Controller.text = '0';
+                                  n4Controller.text = '0';
+                                  golputController.text = '0';
                                 });
                                 showTopSnackBar(
                                   context,
@@ -614,7 +738,11 @@ class _InputPageState extends State<InputPage> {
                                   qNomor3 = 0;
                                   qNomor4 = 0;
                                   qGolput = 0;
-                                  rtController.text = '';
+                                  n1Controller.text = '0';
+                                  n2Controller.text = '0';
+                                  n3Controller.text = '0';
+                                  n4Controller.text = '0';
+                                  golputController.text = '0';
                                 });
                                 showTopSnackBar(
                                   context,
@@ -647,7 +775,11 @@ class _InputPageState extends State<InputPage> {
                                   qNomor3 = 0;
                                   qNomor4 = 0;
                                   qGolput = 0;
-                                  rtController.text = '';
+                                  n1Controller.text = '0';
+                                  n2Controller.text = '0';
+                                  n3Controller.text = '0';
+                                  n4Controller.text = '0';
+                                  golputController.text = '0';
                                 });
                                 showTopSnackBar(
                                   context,

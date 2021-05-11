@@ -148,6 +148,12 @@ class _StatistikPageState extends State<StatistikPage> {
                             builder: (_, snapshot) {
                               if (snapshot.hasData) {
                                 if (dropDownValue == 1) {
+                                  total1 = 0;
+                                  total2 = 0;
+                                  total3 = 0;
+                                  total4 = 0;
+                                  totalGolput = 0;
+
                                   for (int i = 0; i < snapshot.data.size; i++) {
                                     total1 += snapshot.data.docs[i]['nomor1'];
                                     total2 += snapshot.data.docs[i]['nomor2'];
