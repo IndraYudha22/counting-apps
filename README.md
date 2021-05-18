@@ -1,6 +1,6 @@
-# flutter_pemilihan
+# Counting Apps
 
-Aplikasi Potensial Pemilihan Kuwu
+- Flutter + Firestore
 
 ## Getting Started
 
