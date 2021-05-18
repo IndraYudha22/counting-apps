@@ -29,7 +29,7 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
-    CollectionReference users = firestore.collection('users');
+    CollectionReference users = firestore.collection('users_one');
     List<String> docID = [];
 
     return GeneralPage(
@@ -111,29 +111,6 @@ class _InputPageState extends State<InputPage> {
                       DropdownMenuItem(child: Text('RT 14',style: blackFontStyle3,),value: 14),
                       DropdownMenuItem(child: Text('RT 15',style: blackFontStyle3,),value: 15),
                       DropdownMenuItem(child: Text('RT 16',style: blackFontStyle3,),value: 16),
-                      DropdownMenuItem(child: Text('RT 17',style: blackFontStyle3,),value: 17),
-                      DropdownMenuItem(child: Text('RT 18',style: blackFontStyle3,),value: 18),
-                      DropdownMenuItem(child: Text('RT 19',style: blackFontStyle3,),value: 19),
-                      DropdownMenuItem(child: Text('RT 20',style: blackFontStyle3,),value: 20),
-                      DropdownMenuItem(child: Text('RT 21',style: blackFontStyle3,),value: 21),
-                      DropdownMenuItem(child: Text('RT 22',style: blackFontStyle3,),value: 22),
-                      DropdownMenuItem(child: Text('RT 23',style: blackFontStyle3,),value: 23),
-                      DropdownMenuItem(child: Text('RT 24',style: blackFontStyle3,),value: 24),
-                      DropdownMenuItem(child: Text('RT 25',style: blackFontStyle3,),value: 25),
-                      DropdownMenuItem(child: Text('RT 26',style: blackFontStyle3,),value: 26),
-                      DropdownMenuItem(child: Text('RT 27',style: blackFontStyle3,),value: 27),
-                      DropdownMenuItem(child: Text('RT 28',style: blackFontStyle3,),value: 28),
-                      DropdownMenuItem(child: Text('RT 29',style: blackFontStyle3,),value: 29),
-                      DropdownMenuItem(child: Text('RT 30',style: blackFontStyle3,),value: 30),
-                      DropdownMenuItem(child: Text('RT 31',style: blackFontStyle3,),value: 31),
-                      DropdownMenuItem(child: Text('RT 32',style: blackFontStyle3,),value: 32),
-                      DropdownMenuItem(child: Text('RT 33',style: blackFontStyle3,),value: 33),
-                      DropdownMenuItem(child: Text('RT 34',style: blackFontStyle3,),value: 34),
-                      DropdownMenuItem(child: Text('RT 35',style: blackFontStyle3,),value: 35),
-                      DropdownMenuItem(child: Text('RT 36',style: blackFontStyle3,),value: 36),
-                      DropdownMenuItem(child: Text('RT 37',style: blackFontStyle3,),value: 37),
-                      DropdownMenuItem(child: Text('RT 38',style: blackFontStyle3,),value: 38),
-                      DropdownMenuItem(child: Text('RT 39',style: blackFontStyle3,),value: 39),
                     ],
                     onChanged: (value) {
                       setState(() {
@@ -244,7 +221,7 @@ class _InputPageState extends State<InputPage> {
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
-                                          print(n1Controller.text);
+                                          print("ini controller : ${n1Controller.text}, ini nilai ${qNomor1}");
                                           qNomor1 = int.parse( (n1Controller.text == '') ? '0' : n1Controller.text);
                                           qNomor1 = max(0, qNomor1 - 1);
                                           n1Controller.text = qNomor1.toString();
@@ -479,8 +456,8 @@ class _InputPageState extends State<InputPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text("Nomor 4 (Ono Daryono)",
-                                    style: blackFontStyle3),
+                                Text("Nomor 4",
+                                    style: greyFontStyle),
                                 Row(
                                   children: [
                                     GestureDetector(
@@ -488,7 +465,7 @@ class _InputPageState extends State<InputPage> {
                                         setState(() {
                                           print(n4Controller.text);
                                           qNomor4 = int.parse( (n4Controller.text == '') ? '0' : n4Controller.text);
-                                          qNomor4 = max(0, qNomor1 - 1);
+                                          qNomor4 = max(0, qNomor4 - 1);
                                           n4Controller.text = qNomor4.toString();
                                         });
                                       },
@@ -657,13 +634,9 @@ class _InputPageState extends State<InputPage> {
                 if (snapshot.hasData) {
                   return Container(
                     child: UpdateData(
-                      qNomor1,
-                      qNomor2,
-                      qNomor3,
-                      qNomor4,
-                      qGolput,
                       mainColor,
                       onUpdate: () {
+                        print('TO INT : ${n1Controller.text.toInt()}');
                         print(snapshot.connectionState);
                         if (snapshot.connectionState ==
                             ConnectionState.active) {
@@ -675,22 +648,12 @@ class _InputPageState extends State<InputPage> {
                                     "Tolong Pilih Nomor RT Dengan Benar!!",
                               ),
                             );
-                            // ScaffoldMessenger.of(context).showSnackBar(
-                            //   SnackBar(
-                            //     content: Container(
-                            //       child: Align(alignment: Alignment.topCenter,),
-                            //       // Text(
-                            //       //   'Tolong Nomor RT Dimasukan Dengan Benar!!',
-                            //       //   style: GoogleFonts.poppins()
-                            //       //       .copyWith(color: Colors.white),
-                            //       // ),
-                            //     ),
-                            //     backgroundColor: Colors.redAccent,
-                            //     action: SnackBarAction(
-                            //         label: 'Done', onPressed: () {}),
-                            //   ),
-                            // );
                           } else {
+                            qNomor1 = n1Controller.text.toInt();
+                            qNomor2 = n2Controller.text.toInt();
+                            qNomor3 = n3Controller.text.toInt();
+                            qNomor4 = n4Controller.text.toInt();
+                            qGolput = golputController.text.toInt();
                             if (docID.contains(dropDownValue.toString())) {
                               if (dropDownValueOption == 1) {
                                 users.doc(dropDownValue.toString()).update({

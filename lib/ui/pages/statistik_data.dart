@@ -13,7 +13,7 @@ class _StatistikPageState extends State<StatistikPage> {
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
-    CollectionReference users = firestore.collection('users');
+    CollectionReference users = firestore.collection('users_one');
     int total1 = 0;
     int total2 = 0;
     int total3 = 0;

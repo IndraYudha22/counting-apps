@@ -36,7 +36,7 @@ class CardTotal extends StatelessWidget {
 
           Container(
             width: MediaQuery.of(context).size.width - 72,
-            color: 'a29bfe'.toColor(),
+            color: '#2c3e50'.toColor(),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -59,7 +59,7 @@ class CardTotal extends StatelessWidget {
           SizedBox(height: 12,),
           Container(
             width: MediaQuery.of(context).size.width - 72,
-            color: 'fd79a8'.toColor(),
+            color: '#2c3e50'.toColor(),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -82,7 +82,7 @@ class CardTotal extends StatelessWidget {
           SizedBox(height: 12,),
           Container(
             width: MediaQuery.of(context).size.width - 72,
-            color: '#fab1a0'.toColor(),
+            color: '#2c3e50'.toColor(),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -105,7 +105,7 @@ class CardTotal extends StatelessWidget {
           SizedBox(height: 12,),
           Container(
             width: MediaQuery.of(context).size.width - 72,
-            color: '#00b894'.toColor(),
+            color: '#2c3e50'.toColor(),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -128,7 +128,7 @@ class CardTotal extends StatelessWidget {
           SizedBox(height: 12,),
           Container(
             width: MediaQuery.of(context).size.width - 72,
-            color: '#ff7675'.toColor(),
+            color: '#2c3e50'.toColor(),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
